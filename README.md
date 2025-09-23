@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
@@ -9,7 +10,7 @@
   --bg:#0b0b0b;
   --panel:#0f0f12;
   --accent:#8a2be2;
-  --accent-2:#000000;
+  --accent-2:#5d28a6;
   --muted:#bdbdbd;
   --radius:14px;
 }
@@ -18,7 +19,7 @@ html {scroll-behavior: smooth;}
 body{margin:0;background:linear-gradient(180deg,var(--bg),#060606);color:#fff;font-family:'Inter',sans-serif;}
 header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;position:sticky;top:0;backdrop-filter:blur(6px);z-index:20;background:transparent;}
 .brand{display:flex;gap:12px;align-items:center;}
-.logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:18px;}
+.logo img{width:48px;height:48px;border-radius:12px;object-fit:cover;}
 nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600;cursor:pointer;}
 .carrinho{position:relative;cursor:pointer;font-size:24px;}
 .carrinho span{position:absolute;top:-6px;right:-10px;background:var(--accent);color:#fff;border-radius:50%;padding:2px 6px;font-size:12px;}
@@ -37,7 +38,14 @@ p.lead{color:var(--muted);margin:0 0 18px;}
 .sabores-section{max-width:1100px;margin:34px auto;padding:0 18px;}
 .sabores-card{background:var(--panel);border-radius:12px;padding:16px;margin-bottom:16px;transition:0.3s;cursor:pointer;display:flex;align-items:center;}
 .sabores-card:hover{transform:scale(1.05);}
-.sabores-card img{width:60px;height:60px;border-radius:8px;margin-right:10px;vertical-align:middle;}
+.sabores-card img{
+  width:60px;
+  height:60px;
+  border-radius:8px;
+  margin-right:10px;
+  vertical-align:middle;
+  object-fit:cover;
+}
 .shake{animation:shake 0.3s;}
 @keyframes shake{
   0% {transform:translateX(0);}
@@ -55,18 +63,19 @@ footer{padding:28px;text-align:center;color:var(--muted);margin-top:36px;}
 @media(max-width:880px){.hero{grid-template-columns:1fr;}nav a{margin-left:10px;font-size:14px}}
 </style>
 </head>
-
 <body>
-
 
 <header>
   <div class="brand">
-    <!-- arrumar isso dps -->
     <div class="logo">
-        <img src="logo.png" alt="Bye Bye Baby Logo" style="height:50px; width:auto;">
+      <img src="c:\sites\logo.png.png" alt="Logo Bye Bye Baby">
+    </div>
+    <div>
+      <div style="font-weight:700">Bye Bye Baby</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">
+        Preservativos — proteção e estilo
       </div>
-      
-
+    </div>
   </div>
   <nav>
     <a href="#produtos">Produtos</a>
@@ -79,9 +88,7 @@ footer{padding:28px;text-align:center;color:var(--muted);margin-top:36px;}
   </div>
 </header>
 
-
 <div id="carrinho-aba"></div>
-
 
 <main>
 <section class="hero">
@@ -90,11 +97,10 @@ footer{padding:28px;text-align:center;color:var(--muted);margin-top:36px;}
     <p class="lead">Proteção com atitude — design moderno, materiais de qualidade e variedade para todos os momentos.</p>
     <div class="cta">
       <button class="btn btn-primary" onclick="scrollSabores()">Confira os sabores</button>
-      <button class="btn btn-ghost">Fale com a equipe</button>
+      <button class="btn btn-ghost" onclick="scrollContato()">Fale com a equipe</button>
     </div>
   </div>
 </section>
-
 
 <!-- Produtos -->
 <section id="produtos" class="hero">
@@ -107,22 +113,23 @@ footer{padding:28px;text-align:center;color:var(--muted);margin-top:36px;}
   </aside>
 </section>
 
-
 <!-- Sabores -->
 <section id="sabores" class="sabores-section">
   <h2>Premium</h2>
-  <div class="sabores-card" onclick="addCarrinho('Premium','Morango')"><img src="https://via.placeholder.com/60" alt="Morango"> Morango</div>
-  <div class="sabores-card" onclick="addCarrinho('Premium','Chocolate')"><img src="https://via.placeholder.com/60" alt="Chocolate"> Chocolate</div>
-
+  <div class="sabores-card" onclick="addCarrinho('Premium','Frutas Vermelhas & Champanhe')"><img src="c:\sites\embalagem.png.png" alt="Frutas Vermelhas & Champanhe"> Frutas Vermelhas & Champanhe</div>
+  <div class="sabores-card" onclick="addCarrinho('Premium','Café Gourmet')"><img src="c:\sites\embalagem.png.png" alt="Café Gourmet"> Café Gourmet</div>
+  <div class="sabores-card" onclick="addCarrinho('Premium','Maracujá & Pimenta Rosa')"><img src="c:\sites\embalagem.png.png" alt="Maracujá & Pimenta Rosa"> Maracujá & Pimenta Rosa (um toque picante e refinado)</div>
 
   <h2>Clássico</h2>
-  <div class="sabores-card" onclick="addCarrinho('Clássico','Natural')"><img src="https://via.placeholder.com/60" alt="Natural"> Natural</div>
-  <div class="sabores-card" onclick="addCarrinho('Clássico','Banana')"><img src="https://via.placeholder.com/60" alt="Banana"> Banana</div>
-
+  <div class="sabores-card" onclick="addCarrinho('Clássico','Natural')"><img src="c:\sites\embalagem.png.png" alt="Natural"> Natural (sem sabor)</div>
+  <div class="sabores-card" onclick="addCarrinho('Clássico','Morango')"><img src="c:\sites\embalagem.png.png" alt="Morango"> Morango</div>
+  <div class="sabores-card" onclick="addCarrinho('Clássico','Chocolate ao Leite')"><img src="c:\sites\ChatGPT Image 23 de set. de 2025, 15_33_17.png" alt="Chocolate ao Leite"> Chocolate ao Leite (parceria garoto)</div>
+  <div class="sabores-card" onclick="addCarrinho('Clássico','Chocolate meio amargo')"><img src="c:\sites\ChatGPT Image 23 de set. de 2025, 15_33_17.png" alt="Chocolate meio amargo"> Chocolate meio amargo (parceria garoto)</div>
 
   <h2>Ultra-fino</h2>
-  <div class="sabores-card" onclick="addCarrinho('Ultra-fino','Morango')"><img src="https://via.placeholder.com/60" alt="Morango"> Morango</div>
-  <div class="sabores-card" onclick="addCarrinho('Ultra-fino','Hortelã')"><img src="https://via.placeholder.com/60" alt="Hortelã"> Hortelã</div>
+  <div class="sabores-card" onclick="addCarrinho('Ultra-fino','Jasmim')"><img src="c:\sites\embalagem.png.png" alt="Jasmim"> Jasmim (floral leve)</div>
+  <div class="sabores-card" onclick="addCarrinho('Ultra-fino','Limão Siciliano')"><img src="c:\sites\embalagem.png.png" alt="Limão Siciliano"> Limão Siciliano</div>
+  <div class="sabores-card" onclick="addCarrinho('Ultra-fino','Melancia Refrescante')"><img src="c:\sites\embalagem.png.png" alt="Melancia Refrescante"> Melancia Refrescante</div>
 </section>
 
 
@@ -133,7 +140,6 @@ footer{padding:28px;text-align:center;color:var(--muted);margin-top:36px;}
     <p style="color:var(--muted);margin-top:6px">Somos um time jovem que acredita que proteção não precisa ser sem graça. Criamos embalagens modernas e campanhas descontraídas, com foco na segurança e respeito ao usuário.</p>
   </div>
 </section>
-
 
 <!-- Contato -->
 <section id="contato" style="max-width:1100px;margin:24px auto;padding:0 18px">
@@ -152,7 +158,6 @@ footer{padding:28px;text-align:center;color:var(--muted);margin-top:36px;}
   </div>
 </section>
 
-
 <footer>
   <div style="max-width:1100px;margin:0 auto;padding:0 18px">
     <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center">
@@ -162,7 +167,6 @@ footer{padding:28px;text-align:center;color:var(--muted);margin-top:36px;}
   </div>
 </footer>
 
-
 <script>
 let carrinho = {};
 function addCarrinho(tipo, nome){
@@ -171,7 +175,6 @@ function addCarrinho(tipo, nome){
   else carrinho[key]=1;
   updateCarrinho();
 }
-
 
 function updateCarrinho(){
   const aba = document.getElementById('carrinho-aba');
@@ -192,15 +195,12 @@ function updateCarrinho(){
   document.getElementById('totalCarrinho').textContent=total;
 }
 
-
 function mais(item){carrinho[item]++;updateCarrinho();}
 function menos(item){carrinho[item]--; if(carrinho[item]<=0) delete carrinho[item]; updateCarrinho();}
-
 
 function toggleCarrinho(){
   document.getElementById('carrinho-aba').classList.toggle('show');
 }
-
 
 function scrollSabores(){
   const section = document.getElementById('sabores');
@@ -208,6 +208,10 @@ function scrollSabores(){
   shakeSabores();
 }
 
+function scrollContato(){
+  const section = document.getElementById('contato');
+  section.scrollIntoView({behavior:'smooth'});
+}
 
 function shakeSabores(){
   const section = document.getElementById('sabores');
@@ -215,7 +219,6 @@ function shakeSabores(){
   setTimeout(()=>{section.classList.remove('shake');},300);
 }
 </script>
-
 
 </body>
 </html>
